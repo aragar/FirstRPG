@@ -1,19 +1,22 @@
 #include "Monster.h"
 #include "Player.h"
 #include "Random.h"
+#include "Range.h"
 
 #include <iostream>
 
 Monster::Monster(const std::string& name, int hp, int acc, int xpReward, 
-	int armor, const std::string& weaponName, int lowDamage, int highDamage)
+	Range goldRewards, int armor, const std::string& weaponName, int lowDamage, 
+	int highDamage)
 {
 	mName				= name;
 	mHitPoints			= hp;
 	mAccuracy			= acc;
-	mExpRewards	= xpReward;
-	mArmor			= armor;
+	mExpRewards			= xpReward;
+	mGoldRewards		= goldRewards;
+	mArmor				= armor;
 
-	mWeapon.mName = weaponName;
+	mWeapon.mName				= weaponName;
 	mWeapon.mDamageRange.mLow	= lowDamage;
 	mWeapon.mDamageRange.mHigh	= highDamage;
 }
@@ -26,6 +29,11 @@ bool Monster::isDead()
 int Monster::getXPReward()
 {
 	return mExpRewards;
+}
+
+int Monster::getGoldReward()
+{
+	return Random(mGoldRewards);
 }
 
 std::string Monster::getName()

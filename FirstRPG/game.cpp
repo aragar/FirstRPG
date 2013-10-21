@@ -55,7 +55,7 @@ int main()
 
 					if (monster->isDead())
 					{
-						mainPlayer.victory(monster->getXPReward());
+						mainPlayer.victory(monster->getXPReward(), monster->getGoldReward());
 						mainPlayer.levelUp();
 						break;
 					}

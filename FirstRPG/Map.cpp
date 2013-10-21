@@ -51,7 +51,8 @@ Monster* Map::checkRandomEncounter()
 
 	if (row >= 6 && row <= 10)
 	{
-		monster = new Monster("Orc", 10, 8, 200, 1, "Short Sword", 2, 7);
+		Range orcRange = {100, 200};
+		monster = new Monster("Orc", 10, 8, 200, orcRange, 1, "Short Sword", 2, 7);
 
 		std::cout << "You encountered an Orc!" << std::endl;
 		std::cout << "Prepare for battle!" << std::endl;
@@ -59,7 +60,8 @@ Monster* Map::checkRandomEncounter()
 	}
 	else if (row >= 11 && row <= 15)
 	{
-		monster = new Monster("Goblin", 6, 6, 100, 0, "Dagger", 1, 5);
+		Range goblinRange = {0, 100};
+		monster = new Monster("Goblin", 6, 6, 100, goblinRange, 0, "Dagger", 1, 5);
 
 		std::cout << "You encountered a Goblin!" << std::endl;
 		std::cout << "Prepare for battle!" << std::endl;
@@ -67,7 +69,8 @@ Monster* Map::checkRandomEncounter()
 	}
 	else if (row >= 16 && row <= 19)
 	{
-		monster = new Monster("Ogre", 20, 12, 500, 2, "Club", 3, 8);
+		Range ogreRange = {200, 300};
+		monster = new Monster("Ogre", 20, 12, 500, ogreRange, 2, "Club", 3, 8);
 
 		std::cout << "You encountered an Ogre!" << std::endl;
 		std::cout << "Prepare for battle!" << std::endl;
@@ -75,7 +78,8 @@ Monster* Map::checkRandomEncounter()
 	}
 	else if (row == 20)
 	{
-		monster = new Monster("Orc Lord", 25, 15, 2000, 5, "Two Handed Sword", 5, 20);
+		Range orcLordRange = {300, 500};
+		monster = new Monster("Orc Lord", 25, 15, 2000, orcLordRange, 5, "Two Handed Sword", 5, 20);
 
 		std::cout << "You encountered an Orc Lord!!!" << std::endl;
 		std::cout << "Prepare for battle!" << std::endl;
